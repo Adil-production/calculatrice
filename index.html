@@ -13,7 +13,7 @@ background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,255,153,1) 34%, 
             height: 80px;
             border: solid 0.4px rgb(255, 255, 255);
             font-size: 30px;
-            font-family: monospace bold;
+            font-family: Janna LT;
             color: rgb(0, 0, 0);
             background-color: rgb(255, 255, 255 , .75);
             
@@ -36,16 +36,14 @@ background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,255,153,1) 34%, 
             height: 80px;
             border: solid 0.4px rgb(255, 255, 255);
             font-size: 30px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: Janna LT ;
             color: rgb(255, 255, 255);
             background-color: rgb(0, 24, 0);
         }
         #zero{
             width: 160px;
         }
-        #AC{
-            width: 240px;
-        }
+        
         .btn:hover{
             background: white;
         }
@@ -63,7 +61,7 @@ background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,255,153,1) 34%, 
             <br />
             <br />
             <input type="text" id="text" />
-            <button class="btn" id="AC" onclick="ac()">AC</button><button class="btn" id="div" onclick="division()">/</button>
+            <button class="btn" id="AC" onclick="ac()">AC</button><button class="btn" id="croch1" onclick="croch1()">(</button><button class="btn" id="croch2" onclick="croch2()">)</button><button class="btn" id="div" onclick="division()">/</button>
             <button class="btn" id="1" onclick="id1()">1</button><button class="btn" id="2" onclick="id2()">2</button><button class="btn" id="3" onclick="id3()">3</button><button class="btn" id="+" onclick="somme()">+</button>
             <br />
             <button class="btn" id="4" onclick="id4()">4</button><button class="btn" id="5"onclick="id5()">5</button><button class="btn" id="6"onclick="id6()">6</button><button class="btn" id="+" onclick="soustraction()">-</button>
@@ -128,10 +126,27 @@ background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,255,153,1) 34%, 
        function ac(){
         document.getElementById("text").value = "";
        }
+       //
+       
        function idequal(){
-           var response = document.getElementById("text").value;
-           document.getElementById("text").value = eval(response);
+           let input = document.getElementById("text");
            
+           var response = document.getElementById("text").value;
+           try{
+           document.getElementById("text").value = eval(response);
+           } catch(err){
+            document.getElementById("text").value = "خطأ";
+           }
+           
+           
+
+           
+       }
+       function croch1(){
+        document.getElementById("text").value =document.getElementById("text").value+ "(";
+       }
+       function croch2(){
+        document.getElementById("text").value =document.getElementById("text").value+ ")";
        }
     </script>
 </body>
