@@ -61,12 +61,12 @@ background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,255,153,1) 34%, 
             <br />
             <br />
             <input type="text" id="text" />
-            <button class="btn" id="AC" onclick="ac()">AC</button><button class="btn" id="croch1" onclick="croch1()">(</button><button class="btn" id="croch2" onclick="croch2()">)</button><button class="btn" id="div" onclick="division()">/</button>
+            <button class="btn" id="AC" onclick="ac()">AC</button><button class="btn" id="croch1" onclick="croch1()">(</button><button class="btn" id="croch2" onclick="croch2()">)</button><button class="btn" id="div" onclick="division()">÷</button>
             <button class="btn" id="1" onclick="id1()">1</button><button class="btn" id="2" onclick="id2()">2</button><button class="btn" id="3" onclick="id3()">3</button><button class="btn" id="+" onclick="somme()">+</button>
             <br />
-            <button class="btn" id="4" onclick="id4()">4</button><button class="btn" id="5"onclick="id5()">5</button><button class="btn" id="6"onclick="id6()">6</button><button class="btn" id="+" onclick="soustraction()">-</button>
+            <button class="btn" id="4" onclick="id4()">4</button><button class="btn" id="5"onclick="id5()">5</button><button class="btn" id="6"onclick="id6()">6</button><button class="btn" id="-" onclick="soustraction()">-</button>
             <br />
-            <button class="btn" id="7"onclick="id7()">7</button><button class="btn" id="8"onclick="id8()">8</button><button class="btn" id="9"onclick="id9()">9</button><button class="btn" id="+" onclick="multiplication()">x</button>
+            <button class="btn" id="7"onclick="id7()">7</button><button class="btn" id="8"onclick="id8()">8</button><button class="btn" id="9"onclick="id9()">9</button><button class="btn" id="*" onclick="multiplication()">x</button>
             <br />
             <button class="btn" id="zero"onclick="id0()">0</button><button class="btn" id="8"onclick="idpoint()">,</button><button class="btn" id="8"onclick="idequal()">=</button>
         </div>
@@ -126,18 +126,21 @@ background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,255,153,1) 34%, 
        function ac(){
         document.getElementById("text").value = "";
        }
-       //
        
        function idequal(){
-           let input = document.getElementById("text");
-           
-           var response = document.getElementById("text").value;
-           try{
-           document.getElementById("text").value = eval(response);
-           } catch(err){
-            document.getElementById("text").value = "خطأ";
+        var input = document.getElementById("text").value;
+           if(input == ""){
+                document.getElementById("text").value = "لم تكتب اي رقم ";
            }
-           
+           else{ 
+                
+                var response = document.getElementById("text").value;
+                try{
+                document.getElementById("text").value = eval(response);
+                } catch(err){
+                    document.getElementById("text").value = "خطأ";
+            }
+        }
            
 
            
