@@ -1,168 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        body{
-            background: rgb(0,212,255);
-background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,255,153,1) 34%, rgba(9,115,121,1) 100%);
-        }
-        .btn{
-            
-            margin: 0%;
-            width: 80px;
-            height: 80px;
-            border: solid 0.4px rgb(255, 255, 255);
-            font-size: 30px;
-            font-family: Janna LT;
-            color: rgb(0, 0, 0);
-            background-color: rgb(255, 255, 255 , .75);
-            
-        }
-        #all-btn{
-            
-            /*box-shadow: 6px 6px 20px #3d3d3d;*/
-            width: 320px;
-            border: solid 0.0px black;
-            position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50% , -50%);
-      
-        }
-        #text{
-            
-            margin: 0%;
-            width: 314.5px;
-            height: 80px;
-            border: solid 0.4px rgb(255, 255, 255);
-            font-size: 30px;
-            font-family: Janna LT ;
-            color: rgb(255, 255, 255);
-            background-color: rgb(0, 24, 0);
-            text-align:right;
-        }
-        #zero{
-            width: 160px;
-        }
-        
-        .btn:hover{
-            background: white;
-        }
-    </style>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body bgcolor="#17202A">
-    <div align="center">
-        
-        
-        <div align="center" id="all-btn">
-            <br />
-            <br />
-            <input type="text" id="text" />
-            <button class="btn" id="AC" onclick="ac()">AC</button><button class="btn" id="croch1" onclick="croch1()">(</button><button class="btn" id="croch2" onclick="croch2()">)</button><button class="btn" id="div" onclick="division()">÷</button>
-            <button class="btn" id="1" onclick="id1()">1</button><button class="btn" id="2" onclick="id2()">2</button><button class="btn" id="3" onclick="id3()">3</button><button class="btn" id="+" onclick="somme()">+</button>
-            <br />
-            <button class="btn" id="4" onclick="id4()">4</button><button class="btn" id="5"onclick="id5()">5</button><button class="btn" id="6"onclick="id6()">6</button><button class="btn" id="-" onclick="soustraction()">-</button>
-            <br />
-            <button class="btn" id="7"onclick="id7()">7</button><button class="btn" id="8"onclick="id8()">8</button><button class="btn" id="9"onclick="id9()">9</button><button class="btn" id="*" onclick="multiplication()">x</button>
-            <br />
-            <button class="btn" id="zero"onclick="id0()">0</button><button class="btn" id="8"onclick="idpoint()">,</button><button class="btn" id="8"onclick="idequal()">=</button>
-        </div>
-    </div>
-    
-    <script>
-  
-       function id1(){
-           document.getElementById("text").value =document.getElementById("text").value+ 1;
-       }
-       function id2(){
-           document.getElementById("text").value =document.getElementById("text").value+ 2;
-       }
-       function id3(){
-           document.getElementById("text").value =document.getElementById("text").value+ 3;
-       }
-       function id4(){
-           document.getElementById("text").value =document.getElementById("text").value+ 4;
-       }
-       function id5(){
-           document.getElementById("text").value = document.getElementById("text").value+ 5;
-       }
-       function id6(){
-           document.getElementById("text").value = document.getElementById("text").value + 6;
-       }
-       function id7(){
-           document.getElementById("text").value = document.getElementById("text").value + 7;
-       }
-       function id8(){
-           document.getElementById("text").value =document.getElementById("text").value+ 8;
-       }
-       function id9(){
-           document.getElementById("text").value =document.getElementById("text").value+ 9;
-       }
-       function somme(){
-        var firstnumsum = document.getElementById("text");
-        document.getElementById("text").value =document.getElementById("text").value+ "+";
-       }
-       function soustraction(){
-        var firstnumsous = document.getElementById("text");
-        document.getElementById("text").value =document.getElementById("text").value+ "-";
-       }
-       function multiplication(){
-        var firstnummultipl = document.getElementById("text");
-        document.getElementById("text").value =document.getElementById("text").value+ "*";
-       }
-       function division(){
-        var firstnummdiv = document.getElementById("text");
-        document.getElementById("text").value =document.getElementById("text").value+ "/";
-       }
-       function idpoint(){
-        document.getElementById("text").value =document.getElementById("text").value+ ".";
-       }
-       function id0(){
-        document.getElementById("text").value =document.getElementById("text").value+ "0";
-       }
-       function ac(){
-        document.getElementById("text").value = "";
-       }
-       
-       function idequal(){
-        var input = document.getElementById("text").value;
-           if(input == ""){
-                document.getElementById("text").value = "لم تكتب اي رقم ";
-           }
-           
-           else{ 
-                
-                var response = document.getElementById("text").value;
-                try{
-                document.getElementById("text").value = eval(response);
-                if (document.getElementById("text").value == Infinity) {
-                    document.getElementById("text").value = "لا يمكن القسمة على 0 ";
-                }
-                else{
-                   
-                }
-
-                } catch(err){
-                    document.getElementById("text").value = "خطأ";
-  
-            }
-            
+    <title>Calculator</title>
+    <style>
+        .input{
+            outline: none;
+            border: none;
+            text-align:right;
+            width: 100%;
+            padding: 35px;
+            height: 150px;
+            font-size: 35px;
+            color: black;
+            color: rgb(0, 119, 255);
         }
-        
-           
+        .btn{
+            padding: 30px;
+            font-size: 25px;
+            background-color: rgb(224, 224, 224);
+            color: rgb(0, 119, 255);
+            border: 1px solid gray;
+            width: 25%;
+            height: auto;
+        }
+        .btn2{
+            padding: 30px;
+            font-size: 25px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(24, 25, 26);
+            border: 1px solid gray;
+            width: 25%;
+            height: auto;
+        }
+        .btn:active{
+            background-color: rgb(173, 173, 173);
+        }
+        .btn2:active{
+            background-color: rgb(173, 173, 173);
+        }
+        .grp{
+            position: absolute;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="input" id="input" />
+    <div class="grp">
+        <button class="btn" onclick="c()">C</button><button class="btn" onclick="fKaws()">(</button><button class="btn" onclick="sKaws()">)</button><button class="btn" onclick="div()">/</button>
+        <button class="btn2" onclick="sev()">7</button><button class="btn2" onclick="eight()">8</button><button class="btn2" onclick="nine()">9</button><button class="btn" onclick="mult()">x</button>
+        <button class="btn2" onclick="fr()">4</button><button class="btn2" onclick="fv()">5</button><button class="btn2" onclick="sx()">6</button><button class="btn" onclick="min()">-</button>
+        <button class="btn2" onclick="one()">1</button><button class="btn2" onclick="tw()">2</button><button class="btn2" onclick="tr()">3</button><button class="btn" onclick="plus()">+</button>
+        <button class="btn2" style="width: 50%;" onclick="z()">0</button><button class="btn2" onclick="fas()">.</button><button class="btn" onclick="equal()">=</button>
+    </div>
+    <script>
+            var input = document.getElementById("input");
 
-           
-       }
-       function croch1(){
-        document.getElementById("text").value =document.getElementById("text").value+ "(";
-       }
-       function croch2(){
-        document.getElementById("text").value =document.getElementById("text").value+ ")";
-       }
+
+        function c(){
+            input.value = "";
+        }
+        function fKaws(){
+            input.value += "(";
+        }
+        function sKaws(){
+            input.value += ")";
+        }
+        function div(){
+            input.value += "/";
+        }
+        function sev(){
+            input.value += "7";
+        }
+        function eight(){
+            input.value += "8";
+        }
+        function nine(){
+            input.value += "9";
+        }
+        function mult(){
+            input.value += "*";
+        }
+        function mult(){
+            input.value += "*";
+        }
+        function fr(){
+            input.value += "4";
+        }
+        function fv(){
+            input.value += "5";
+        }
+        function sx(){
+            input.value += "6";
+        }
+        function min(){
+            input.value += "-";
+        }
+        function mult(){
+            input.value += "*";
+        }
+        function one(){
+            input.value += "1";
+        }
+        function tw(){
+            input.value += "2";
+        }
+        function tr(){
+            input.value += "3";
+        }
+        function plus(){
+            input.value += "+";
+        }
+        function z(){
+            input.value += "0";
+        }
+        function fas(){
+            input.value += ".";
+        }
+        function equal(){
+            try{
+
+                var res = eval(input.value);
+                input.value = res;
+
+            }catch(error){
+
+                input.value = "Error";
+
+            }
+        }
     </script>
 </body>
 </html>
