@@ -17,51 +17,76 @@
             padding: 35px;
             height: 150px;
             font-size: 35px;
-            color: black;
-            color: rgb(0, 119, 255);
+            color: rgb(51, 64, 240);
+        }
+        .input[type="text"][disabled] {
+            color: rgb(51, 64, 240);
         }
         .btn{
             padding: 30px;
             font-size: 25px;
-            background-color: rgb(224, 224, 224);
-            color: rgb(0, 119, 255);
-            border: 1px solid gray;
-            width: 25%;
+            background-color: rgb(51, 64, 240);
+            color: rgb(255, 255, 255);
+            width: 22.5%;
+            border-radius: 10px;
+            margin: 4px;
             height: auto;
         }
         .btn2{
             padding: 30px;
             font-size: 25px;
             background-color: rgb(255, 255, 255);
-            color: rgb(24, 25, 26);
-            border: 1px solid gray;
-            width: 25%;
+            color: rgb(39, 41, 43);
+            border: 1px solid rgb(233, 233, 233);
+            width: 22.5%;
+            border-radius: 10px;
+            margin: 4px;
             height: auto;
         }
         .btn:active{
-            background-color: rgb(173, 173, 173);
+            background-color: rgb(32, 41, 170);
         }
+
         .btn2:active{
-            background-color: rgb(173, 173, 173);
+            background-color: rgb(201, 201, 201);
         }
         .grp{
             position: absolute;
             bottom: 0px;
         }
+        .b{
+            transform: translateY(2%);
+            height: auto;
+            width: 47.5%;
+        }
     </style>
 </head>
 <body>
-    <input type="text" class="input" id="input" />
+    
     <div class="grp">
-        <button class="btn" onclick="c()">C</button><button class="btn" onclick="fKaws()">(</button><button class="btn" onclick="sKaws()">)</button><button class="btn" onclick="div()">/</button>
-        <button class="btn2" onclick="sev()">7</button><button class="btn2" onclick="eight()">8</button><button class="btn2" onclick="nine()">9</button><button class="btn" onclick="mult()">x</button>
-        <button class="btn2" onclick="fr()">4</button><button class="btn2" onclick="fv()">5</button><button class="btn2" onclick="sx()">6</button><button class="btn" onclick="min()">-</button>
-        <button class="btn2" onclick="one()">1</button><button class="btn2" onclick="tw()">2</button><button class="btn2" onclick="tr()">3</button><button class="btn" onclick="plus()">+</button>
-        <button class="btn2" style="width: 50%;" onclick="z()">0</button><button class="btn2" onclick="fas()">.</button><button class="btn" onclick="equal()">=</button>
+        <input type="text" class="input" id="input" disabled />
+        <button class="btn2" onclick="fKaws()">(</button><button class="btn2" onclick="sKaws()">)</button><br>
+        <button class="btn2 b" onclick="back_space()"><ion-icon name="backspace-outline"></ion-icon></button><button class="btn2" onclick="c()">C</button><button class="btn2" onclick="div()" style="color: rgb(51, 64, 240);">÷</button>
+        <button class="btn2" onclick="sev()">7</button><button class="btn2" onclick="eight()">8</button><button class="btn2" onclick="nine()">9</button><button class="btn2" onclick="mult()" style="color: rgb(51, 64, 240);">×</button>
+        <button class="btn2" onclick="fr()">4</button><button class="btn2" onclick="fv()">5</button><button class="btn2" onclick="sx()">6</button><button class="btn2" onclick="min()" style="color: rgb(51, 64, 240);">-</button>
+        <button class="btn2" onclick="one()">1</button><button class="btn2" onclick="tw()">2</button><button class="btn2" onclick="tr()">3</button><button class="btn2" onclick="plus()" style="color: rgb(51, 64, 240);">+</button>
+        <button class="btn2" style="width: 47.5%;" onclick="z()">0</button><button class="btn2" onclick="fas()">.</button><button class="btn" onclick="equal()">=</button>
     </div>
     <script>
             var input = document.getElementById("input");
+            function back_space() {
 
+                var arrayexit = document.getElementById("input").value;
+
+                for (var i = 0; i < arrayexit.length; i++) 
+                {
+                    var output = arrayexit.slice(0, -1);
+                    document.getElementById("input").value = output;
+
+                }
+
+
+        }
 
         function c(){
             input.value = "";
